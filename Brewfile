@@ -24,4 +24,6 @@ cask 'google-chrome'
 cask 'iterm2'
 cask "zoom"
 
-mas "Bear", id: 1091189122
+mas 'Bear', id: 1091189122
+mas 'Magnet', id: 441258766
+mas 'Shush', id: 496437906 
