@@ -8,7 +8,6 @@ tap 'homebrew/bundle'
 
 # Binaries
 brew 'coreutils'
-brew 'font-Go-Mono-nerd-font'
 brew 'git'
 brew 'gnupg'
 brew 'go'
@@ -20,6 +19,7 @@ brew 'tree' # List directories in a tree structure
 
 # Apps
 cask '1password'
+cask 'font-go-mono-nerd-font'
 cask 'google-chrome'
 cask 'iterm2'
 cask "zoom"

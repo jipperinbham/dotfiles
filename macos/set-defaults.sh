@@ -401,9 +401,9 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 defaults write com.apple.dock mru-spaces -bool false
 
 # Remove the auto-hiding Dock delay
-defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-delay -float 0.1
 # Remove the animation when hiding/showing the Dock
-defaults write com.apple.dock autohide-time-modifier -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.1
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -622,16 +622,16 @@ defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool t
 # Kill affected applications                                                  #
 ###############################################################################
 
-for app in "Activity Monitor" \
-	"cfprefsd" \
-	"Dock" \
-	"Finder" \
-	"Google Chrome" \
-	"Messages" \
-	"Photos" \
-	"Safari" \
-	"SystemUIServer" \
-	"Terminal"; do
-	killall "${app}" &> /dev/null
-done
+# for app in "Activity Monitor" \
+# 	"cfprefsd" \
+# 	"Dock" \
+# 	"Finder" \
+# 	"Google Chrome" \
+# 	"Messages" \
+# 	"Photos" \
+# 	"Safari" \
+# 	"SystemUIServer" \
+# 	"Terminal"; do
+# 	killall "${app}" &> /dev/null
+# done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
