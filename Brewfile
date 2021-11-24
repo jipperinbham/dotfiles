@@ -9,7 +9,6 @@ tap 'homebrew/bundle'
 # Binaries
 brew 'coreutils'
 brew 'git'
-brew 'gnupg'
 brew 'go'
 brew 'jq'
 brew 'mas' # Mac App Store manager
@@ -21,8 +20,9 @@ brew 'tree' # List directories in a tree structure
 cask '1password'
 cask 'font-go-mono-nerd-font'
 cask 'google-chrome'
+cask 'gpg-suite-no-mail'
 cask 'iterm2'
-cask "zoom"
+cask 'zoom'
 
 mas 'Bear', id: 1091189122
 mas 'Magnet', id: 441258766
