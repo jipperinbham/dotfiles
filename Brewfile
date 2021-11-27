@@ -10,10 +10,12 @@ tap 'homebrew/bundle'
 brew 'coreutils'
 brew 'git'
 brew 'go'
+brew 'gopls'
 brew 'jq'
 brew 'mas' # Mac App Store manager
 brew 'neovim'
 brew 'starship'
+brew 'terraform-ls'
 brew 'tree' # List directories in a tree structure
 
 # Apps
