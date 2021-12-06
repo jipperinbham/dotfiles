@@ -27,6 +27,8 @@ cask 'gpg-suite-no-mail'
 cask 'iterm2'
 cask 'zoom'
 
+# Mac App Store
 mas 'Bear', id: 1091189122
 mas 'Magnet', id: 441258766
-mas 'Shush', id: 496437906 
+mas 'Shush', id: 496437906
+mas 'Slack', id: 803453959
