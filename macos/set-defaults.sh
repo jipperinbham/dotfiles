@@ -16,6 +16,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
+# Disable Dictation Shortcut since it interferes with Shush
+defaults write com.apple.HIToolbox AppleDictationAutoEnable -int 0
+
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName "MBP OG JP"
 sudo scutil --set HostName "MBP OG JP"

@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -xeo pipefail
-
 NEOVIM_DOTFILES_ROOT="$HOME/.dotfiles/neovim"
 NEOVIM_ROOT="$HOME/.config/nvim"
 

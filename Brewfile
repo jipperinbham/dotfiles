@@ -16,6 +16,7 @@ brew 'mas' # Mac App Store manager
 brew 'neovim'
 brew 'ripgrep'
 brew 'starship'
+brew 'teleport'
 brew 'terraform-ls'
 brew 'tree' # List directories in a tree structure
 
@@ -32,3 +33,4 @@ mas 'Bear', id: 1091189122
 mas 'Magnet', id: 441258766
 mas 'Shush', id: 496437906
 mas 'Slack', id: 803453959
+mas 'Tailscale', id: 1475387142
