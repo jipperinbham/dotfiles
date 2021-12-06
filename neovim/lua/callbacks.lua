@@ -3,7 +3,6 @@ local function goto_definition(split_cmd)
   local log = require("vim.lsp.log")
   local api = vim.api
 
-  -- note, this handler style is for neovim 0.5.1/0.6, if on 0.5, call with function(_, method, result)
   local handler = function(_, result, ctx)
     if result == nil or vim.tbl_isempty(result) then
       local _ = log.info() and log.info(ctx.method, "No location found")
@@ -34,3 +33,11 @@ vim.lsp.handlers["textDocument/declaration"] = goto_definition('split')
 vim.lsp.handlers["textDocument/definition"] = goto_definition('split')
 vim.lsp.handlers["textDocument/typeDefinition"] = goto_definition('split')
 vim.lsp.handlers["textDocument/implementation"] = goto_definition('split')
+
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-source-in-diagnostics-neovim-06-only
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = {
+    source = "always",  -- Or "if_many"
+  }
+})
+
