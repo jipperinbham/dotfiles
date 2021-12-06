@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -xeo pipefail
+
 NEOVIM_DOTFILES_ROOT="$HOME/.dotfiles/neovim"
 NEOVIM_ROOT="$HOME/.config/nvim"
 
@@ -14,6 +16,10 @@ if ! [[ -f  "${NEOVIM_ROOT}/init.vim" ]]; then
     ln -s "${NEOVIM_DOTFILES_ROOT}/init.vim" "${NEOVIM_ROOT}/init.vim"
 fi
 
+if ! [[ -f  "${NEOVIM_ROOT}/plugins.vim" ]]; then
+    ln -s "${NEOVIM_DOTFILES_ROOT}/plugins.vim" "${NEOVIM_ROOT}/plugins.vim"
+fi
+
 if ! [[ -d "${NEOVIM_ROOT}/lua" ]]; then
     ln -s "${NEOVIM_DOTFILES_ROOT}/lua" "${NEOVIM_ROOT}/lua"
 fi
@@ -26,5 +32,4 @@ if ! [[ -d "${NEOVIM_ROOT}/ftplugin" ]]; then
     ln -s "${NEOVIM_DOTFILES_ROOT}/ftplugin" "${NEOVIM_ROOT}/ftplugin"
 fi
 
-
-TERM=dumb nvim +PlugInstall +qall >vim.log 2>&1
+nvim --noplugin -es -u ${HOME}/.config/nvim/plugins.vim -i NONE -c "PlugInstall! --sync" -c "qa"

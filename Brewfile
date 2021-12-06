@@ -14,6 +14,7 @@ brew 'gopls'
 brew 'jq'
 brew 'mas' # Mac App Store manager
 brew 'neovim'
+brew 'ripgrep'
 brew 'starship'
 brew 'terraform-ls'
 brew 'tree' # List directories in a tree structure
