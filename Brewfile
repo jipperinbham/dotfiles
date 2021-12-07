@@ -22,6 +22,7 @@ brew 'tree' # List directories in a tree structure
 
 # Apps
 cask '1password'
+cask '1password-cli'
 cask 'font-go-mono-nerd-font'
 cask 'google-chrome'
 cask 'gpg-suite-no-mail'
