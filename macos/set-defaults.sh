@@ -19,11 +19,14 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Disable Dictation Shortcut since it interferes with Shush
 defaults write com.apple.HIToolbox AppleDictationAutoEnable -int 0
 
+computer_name=${COMPUTER_NAME:-jp-mbp}
+local_hostname=${LOCAL_HOSTNAME:-jp-mbp-local}
+
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "MBP OG JP"
-sudo scutil --set HostName "MBP OG JP"
-sudo scutil --set LocalHostName "mbp-og-jp"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MBP OG JP"
+sudo scutil --set ComputerName "${computer_name}"
+sudo scutil --set HostName "${computer_name}"
+sudo scutil --set LocalHostName "${local_hostname}"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "${computer_name}"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
