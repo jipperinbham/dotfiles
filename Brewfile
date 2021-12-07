@@ -27,6 +27,7 @@ cask 'font-go-mono-nerd-font'
 cask 'google-chrome'
 cask 'gpg-suite-no-mail'
 cask 'iterm2'
+cask 'spotify'
 cask 'zoom'
 
 # Mac App Store
