@@ -1,5 +1,8 @@
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
+export PROMPT_EOL_MARK='' # don't append % to partial lines.
+
+export TELEPORT_LOGIN=root
 
 # fpath=($ZSH/functions $fpath)
 

@@ -54,3 +54,8 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 # Enable Starship
 
 eval "$(starship init zsh)"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="$PATH:/opt/homebrew/lib/ruby/gems/3.1.0/bin"
+
+# Enable z
+. $HOME/z/z.sh

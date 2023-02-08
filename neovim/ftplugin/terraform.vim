@@ -1,3 +1,3 @@
 if has("nvim")
-    autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre *.tf lua vim.lsp.buf.format({async:true})
 endif

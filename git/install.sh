@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -eo pipefail
-
 EXISTING_KEY=$(gpg --list-secret-keys --keyid-format=long | grep "8F7309351DC7C6D5")
 if [[ $EXISTING_KEY ]]; then
   echo "gpg key already imported"

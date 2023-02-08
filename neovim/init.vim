@@ -20,6 +20,7 @@ set showmatch             " Highlight matching braces
 set showmode              " Show the current mode on the open buffer
 set splitbelow            " Splits show up below by default
 set splitright            " Splits go to the right by default
+set mouse=                " Disables the mouse
 
 " suppress error bell
 set noerrorbells visualbell t_vb=

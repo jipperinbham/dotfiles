@@ -28,3 +28,7 @@
 
 [gpg]
 	program = gpg
+[push]
+	autoSetupRemote = true
+[init]
+	defaultBranch = main

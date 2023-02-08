@@ -21,4 +21,7 @@ then
 
 fi
 
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/jp/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 exit 0

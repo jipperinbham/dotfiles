@@ -2,7 +2,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'fatih/molokai'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSInstallSync! go gomod json hcl rust'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'hrsh7th/nvim-compe'
@@ -24,5 +24,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'hashivim/vim-terraform'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+Plug 'b0o/schemastore.nvim'
+
+Plug 'simrat39/rust-tools.nvim'
 
 call plug#end()

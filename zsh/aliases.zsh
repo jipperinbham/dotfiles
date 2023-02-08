@@ -20,3 +20,7 @@ alias ll="ls -lAF ${colorflag}"
 alias ls="command ls ${colorflag}"
 
 alias grep='grep --color=auto'
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
+alias hopper="tsh ssh -A -l jipperinbham -t hopper"
