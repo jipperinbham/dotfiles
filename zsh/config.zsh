@@ -4,6 +4,8 @@ export PROMPT_EOL_MARK='' # don't append % to partial lines.
 
 export TELEPORT_LOGIN=root
 
+export CGO_CFLAGS="-Wno-undef-prefix"
+
 # fpath=($ZSH/functions $fpath)
 
 # autoload -U $ZSH/functions/*(:t)

@@ -5,7 +5,7 @@ setlocal noexpandtab
 
 lua <<EOF
 function go_organize_imports_sync(timeout_ms)
-  vim.lsp.buf.formatting()
+  vim.lsp.buf.format()
 
   local params = vim.lsp.util.make_range_params()
   params.context = {only = {"source.organizeImports"}}
@@ -13,7 +13,7 @@ function go_organize_imports_sync(timeout_ms)
   for _, res in pairs(result or {}) do
     for _, r in pairs(res.result or {}) do
       if r.edit then
-        vim.lsp.util.apply_workspace_edit(r.edit)
+        vim.lsp.util.apply_workspace_edit(r.edit, vim.lsp.util._get_offset_encoding())
       else
         vim.lsp.buf.execute_command(r.command)
       end

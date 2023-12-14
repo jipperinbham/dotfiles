@@ -46,11 +46,11 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
 
   -- Set some keybinds conditional on server capabilities
   if client.server_capabilities.documentFormattingProvider then
-    buf_set_keymap("n", "ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_set_keymap("n", "ff", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
   elseif client.server_capabilities.documentFangeFormattingProvider then
     buf_set_keymap("n", "ff", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
@@ -72,7 +72,7 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Code actions
 capabilities.textDocument.codeAction = {
@@ -102,6 +102,9 @@ local servers = {
             root_dir = util.root_pattern("go.mod", ".vim", ".git", ".hg"),
             settings = {
                 gopls = {
+                    env = {
+                        GOFLAGS = "-tags=json1"
+                    },
                     buildFlags = {"-tags=linux"},
                     usePlaceholders = true,
                     analyses = {
@@ -148,6 +151,7 @@ local servers = {
         -- ccls = {}
 }
 
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 for server, config in pairs(servers) do
@@ -158,47 +162,34 @@ end
 --
 -- https://github.com/simrat39/rust-tools.nvim#configuration
 --
-local opts = {
-  -- rust-tools options
-  tools = {
-    autoSetHints = true,
-    hover_with_actions = true,
-    inlay_hints = {
-      show_parameter_hints = true,
-      parameter_hints_prefix = "",
-      other_hints_prefix = "",
-      },
-    },
+local rt = require("rust-tools")
 
-  -- all the opts to send to nvim-lspconfig
-  -- these override the defaults set by rust-tools.nvim
-  -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-  -- https://rust-analyzer.github.io/manual.html#features
+rt.setup({
   server = {
-    settings = {
-      ["rust-analyzer"] = {
-        assist = {
-          importEnforceGranularity = true,
-          importPrefix = "crate"
-          },
-        cargo = {
-          allFeatures = true
-          },
-        checkOnSave = {
-          -- default: `cargo check`
-          command = "clippy"
-          },
+    on_attach = on_attach,
+    capabilites = capabilites,
+  },
+  settings = {
+    ["rust-analyzer"] = {
+      assist = {
+        importEnforceGranularity = true,
+        importPrefix = "crate"
         },
-        inlayHints = {
-          lifetimeElisionHints = {
-            enable = true,
-            useParameterNames = true
-          },
+      cargo = {
+        allFeatures = true,
         },
-      }
-    },
-}
-require('rust-tools').setup(opts)
+      },
+      checkOnSave = {
+          command = "clippy",
+      },
+      inlayHints = {
+        lifetimeElisionHints = {
+          enable = true,
+          useParameterNames = true
+        },
+      },
+  },
+})
 
 ---------------------------------------------------------------------
 -- nvim-cmmp
@@ -287,3 +278,22 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
 }
+
+
+---------------------------------------------------------------------
+-- Copilot
+---------------------------------------------------------------------
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_filetypes = {
+    ["*"] = false,
+    ["javascript"] = true,
+    ["typescript"] = true,
+    ["lua"] = false,
+    ["rust"] = true,
+    ["c"] = true,
+    ["c#"] = true,
+    ["c++"] = true,
+    ["go"] = true,
+    ["python"] = true,
+}
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })

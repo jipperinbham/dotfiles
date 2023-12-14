@@ -163,3 +163,8 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " vim-terraform
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
+
+" rust
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0

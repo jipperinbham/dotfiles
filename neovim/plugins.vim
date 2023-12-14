@@ -27,6 +27,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 Plug 'b0o/schemastore.nvim'
 
+Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
+
+Plug 'github/copilot.vim'
 
 call plug#end()
