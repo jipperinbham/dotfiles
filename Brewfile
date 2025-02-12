@@ -49,6 +49,7 @@ brew 'terraform-ls'
 brew 'tree' # List directories in a tree structure
 brew 'watch'
 brew 'yq'
+brew 'zsh-autocomplete'
 
 # Apps
 cask '1password'
