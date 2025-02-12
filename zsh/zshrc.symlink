@@ -55,10 +55,6 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 eval "$(starship init zsh)"
 
-# Configure asdf for managing things
-
-. $(brew --prefix asdf)/libexec/asdf.sh
-
 # Enable z
-. $HOME/z/z.sh
+. $HOME/z/zsh-z.plugin.zsh
 export PATH="/opt/homebrew/opt/ansible@7/bin:$PATH"
