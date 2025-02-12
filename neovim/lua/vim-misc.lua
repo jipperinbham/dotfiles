@@ -144,10 +144,7 @@ local servers = {
             },
         },
         -- ccls = {},
-        bufls = {
-            cmd = { "bufls", "serve" },
-            filetypes = {"proto"}
-        },
+        buf_ls = {},
         -- ccls = {}
 }
 
